@@ -1,8 +1,28 @@
 # midi2xml
-code to convert midi files to xml and vice versa using existing pretty_midi and magenta libraries
+midi2xml contains functions to read xml files as midi data, and write midi data to xml files
 
-## xml_read_write.py
-contains functions to write PrettyMIDI objects to xml files, and vice versa
+magenta is required for the read_from_xml function. It can be found here: https://magenta.tensorflow.org/
 
-## clean_midi
-library of midi files used as test cases
+pretty_midi is a library containing functions/classes for the manipulation of midi data. It is required for this library to work.
+It can be found here: https://github.com/craffel/pretty-midi
+
+### example reading an xml file into midi data
+
+'''python
+import midi_xml_read_write as xml_rw
+import pretty_midi
+# read xml file
+midi_data = xml_rw.read_from_xml('example.mxl')
+# midi_data is a PrettyMIDI object compatible with pretty_midi
+'''
+
+### example reading a midi file, and writing it to an xml file
+
+'''python
+import midi_xml_read_write as xml_rw
+import pretty_midi
+# create PrettyMIDI object from midi file
+midi_data = pretty_midi.PrettyMIDI('example.mid')
+# write midi_data to xml file
+xml_rw.write_to_xml(midi_data, 'example.mxl')
+'''
