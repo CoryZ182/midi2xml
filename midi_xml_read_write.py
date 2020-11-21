@@ -1,7 +1,6 @@
 from magenta.music import musicxml_reader
 import magenta.music
 import pretty_midi
-from music21 import converter
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import ElementTree
 
