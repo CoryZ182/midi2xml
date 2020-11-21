@@ -8,16 +8,13 @@ It can be found here: https://github.com/craffel/pretty-midi
 
 ### example reading an xml file into midi data
 
-'''python
 import midi_xml_read_write as xml_rw
 import pretty_midi
 #ead xml file
 midi_data = xml_rw.read_from_xml('example.mxl')
 #midi_data is a PrettyMIDI object compatible with pretty_midi
-'''
 
 ### example reading a midi file, and writing it to an xml file
-
 
 import midi_xml_read_write as xml_rw
 import pretty_midi
