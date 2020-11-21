@@ -228,14 +228,16 @@ def read_from_xml(xml_file):
     xml_note_sequence = musicxml_reader.musicxml_file_to_sequence_proto(xml_file)
     return magenta.music.sequence_proto_to_pretty_midi(xml_note_sequence)
 
-def write_to_xml(self, filename):
+def write_to_xml(self, midi_object, filename):
     """writes a prettyMIDI object to a musicxml file.
 
     Args:
+    midi_object : PrettyMIDI
+        midi data to be written
     filename : str
         path to write xml file to
     """
-    song = pretty_midi.PrettyMIDI(filename)
+    song = midi_object
     root = ET.Element('score-partwise')
     tree = ET.ElementTree(root)
     partList = ET.SubElement(root, 'part-list')
@@ -403,7 +405,6 @@ def write_to_xml(self, filename):
                 i += 1
             instNum += 1
 
-    if filename.find('.mid') != -1:
-        filename.replace('.mid', '')
-    filename += '.xml'
+    if filename.find('.xml') == -1:
+        filename += '.xml'
     tree.write(filename, 'UTF8')
