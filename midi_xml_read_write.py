@@ -404,7 +404,6 @@ def write_to_xml(self, midi_object, filename):
 
                 i += 1
             instNum += 1
-
-    if filename.find('.xml') == -1:
-        filename += '.xml'
+    if filename.find('.mxl') == -1 and filename.find('.musicxml') == -1:
+        filename += '.mxl'
     tree.write(filename, 'UTF8')
